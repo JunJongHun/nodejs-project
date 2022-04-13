@@ -1,0 +1,30 @@
+{
+  "name": "sever-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./src/server.js",
+    "db": "babel-node ./src/db.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JunJongHun/nodejs-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JunJongHun/nodejs-project/issues"
+  },
+  "homepage": "https://github.com/JunJongHun/nodejs-project#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "nodemon": "^2.0.15"
+  }
+}
