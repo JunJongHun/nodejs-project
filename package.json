@@ -5,7 +5,7 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon --exec babel-node ./src/server.js",
-    "db": "babel-node ./src/db.js"
+    "db": "babel-node ./src/db/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,14 @@
   },
   "homepage": "https://github.com/JunJongHun/nodejs-project#readme",
   "dependencies": {
+    "csv": "^6.0.5",
     "express": "^4.17.3",
-    "mysql": "^2.18.1"
+    "module": "^1.0.0",
+    "mongoose": "^6.3.1",
+    "morgan": "^1.10.0",
+    "multiparty": "^4.2.3",
+    "mysql": "^2.18.1",
+    "nunjucks": "^3.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",

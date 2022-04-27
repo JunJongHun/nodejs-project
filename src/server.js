@@ -1,8 +1,7 @@
-// 서버
-
 import express from "express";  //express모듈 불러옴 
 import globalRouter from "./routers/globalRouter.js";   //glovbalRouter 불러옴
-import uploadFileRouter from "./routers/uploadFileRouter.js";  //uploda라우터 불러옴 
+import uploadFileRouter from "./routers/uploadFileRouter.js";  //uploda라우터 불러옴
+import index from "./db/index.js"; //몽고디비 연결
 
 const PORT = 4000;    // 딱 한번만 선언가능한 const
 
@@ -17,3 +16,4 @@ const handleListening = () => {
 
 app.listen(PORT, handleListening); // 콜백 함수로 위에 hamdlelistening으로 가서 저거 가동        port 번호=4000  그리고 handlelistening callback 함수를 받는다 
 
+console.log(index);
