@@ -4,7 +4,7 @@ mongoose.connect("주소입력");
 
 //https://learntutorials.net/ko/node-js/topic/3486/%EB%AA%BD%EA%B5%AC%EC%8A%A4-%EB%8F%84%EC%84%9C%EA%B4%80
 // 참고해!
-const db = mongoose.connection;
+const db = mongoose.connection; // 몽구스 커넥션 객체 생성
 
 // 이벤트에 대한 콜백 함수
 const handleError = (error) => {
