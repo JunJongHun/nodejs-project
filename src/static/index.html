@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <form
+      action="/uploadFile"
+      name="input_file"
+      method="post"
+      enctype="multipart/form-data"
+      class="form"
+    >
+      <div>Main Page - Push inputData Server</div>
+      <input type="file" value="파일 선택" accept="txt" class="f" />
+      <input type="submit" value="제출" class="btn" />
+    </form>
+    <script type="text/javascript">
+      const upload = async () => {
+        let input = document.querySelector(".f").files[0];
+        let formData = new FormData();
+
+        formData.append("inputfile", input);
+        await fetch("http://localhost:4000/uploadFile", {
+          method: "POST",
+          body: formData,
+        });
+      };
+
+      let button = document.querySelector(".form");
+      console.log(`button :  ${button}`);
+
+      button.addEventListener("submit", upload);
+    </script>
+  </body>
+</html>
