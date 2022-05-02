@@ -1,3 +1,6 @@
+import path from "path";
+
 export const main = (req, res, next) => {
-  return res.send("Main Page - Push inputData Server");
+  console.log(req.body);
+  return res.sendFile(path.join(__dirname + "./../static/index.html"));
 };

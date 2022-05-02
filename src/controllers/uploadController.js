@@ -1,3 +1,6 @@
+import path from "path";
+
 export const upload = (req, res, next) => {
-  return res.send("show graph");
-};                                                  //이것도 콜백함수 되것네   
+  console.log(req.file);
+  return res.sendFile(path.join(__dirname + "./../static/upload.html"));
+}; //이것도 콜백함수 되것네
