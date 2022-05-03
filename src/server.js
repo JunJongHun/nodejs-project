@@ -1,6 +1,6 @@
 // 서버
-// import "./db/db.js"; // DB 연결 파일 import
-// import "./db/schema/input.js"; // input 스키마, 모델 import
+import "./db/db.js"; // DB 연결 파일 import
+import "./db/schema/input.js"; // input 스키마, 모델 import
 import express from "express"; //express모듈 불러옴
 import globalRouter from "./routers/globalRouter.js"; //glovbalRouter 불러옴
 import uploadFileRouter from "./routers/uploadFileRouter.js"; //uploda라우터 불러옴
