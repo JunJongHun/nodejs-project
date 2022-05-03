@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-
-mongoose.connect("");
+// https://koonsland.tistory.com/101
+mongoose.connect("mongodb+srv://jinnymoon1124:qwer1234@cluster0.jxsyt.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 
 //https://learntutorials.net/ko/node-js/topic/3486/%EB%AA%BD%EA%B5%AC%EC%8A%A4-%EB%8F%84%EC%84%9C%EA%B4%80
 // 참고해!
