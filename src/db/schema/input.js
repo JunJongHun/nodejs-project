@@ -7,14 +7,10 @@ const inputSchema = new Schema({
   // input 파일에 대한 스키마 정의하기
   // https://mongoosejs.com/docs/guide.html  이거 참고해
 
-  core: Number,
   name: {
-    // 중복되지 않도록 unique
     type: String,
     unique: true,
   },
-  task: Number,
-  value: Number,
 });
 
 //모델 정의하기
