@@ -22,7 +22,8 @@
     "exceljs": "^4.3.0",
     "express": "^4.17.3",
     "mongoose": "^6.3.1",
-    "multer": "^1.4.4"
+    "multer": "^1.4.4",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.17.9",
