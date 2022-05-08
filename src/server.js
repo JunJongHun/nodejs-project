@@ -18,7 +18,7 @@ app.use("/uploadFile", uploadFileRouter); // uploadFile치면 또 저쪽 라우�
 
 app.get("/test", (req, res) => {
   console.log(process.cwd() + "/src");
-  return res.render("test", { pageTitle: "whdgns" });
+  return res.render("highChart", { pageTitle: "HighChart", data: 3000 });
 });
 
 const handleListening = () => {
