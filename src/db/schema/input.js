@@ -11,7 +11,6 @@ const inputSchema = new Schema({
   name: {
     // 중복되지 않도록 unique
     type: String,
-    unique: true,
   },
   task: Number,
   value: Number,
