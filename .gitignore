@@ -2,3 +2,4 @@
 /node_modules
 
 # 제외 파일
+.env
