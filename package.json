@@ -18,11 +18,7 @@
   },
   "homepage": "https://github.com/JunJongHun/nodejs-project#readme",
   "dependencies": {
-<<<<<<< HEAD
     "dotenv": "^16.0.1",
-=======
-    "db": "^3.3.1",
->>>>>>> upsert
     "excel": "^1.0.1",
     "exceljs": "^4.3.0",
     "express": "^4.17.3",
