@@ -22,7 +22,7 @@ export const upload = async (req, res, next) => {
     }
   } catch (error) {
     console.log(`DB 오류 있음 : ${error}`);
-    // return res.redirect("/");
+
     return res.redirect("/");
   }
 };
