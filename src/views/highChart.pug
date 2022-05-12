@@ -1,0 +1,66 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title #{pageTitle}
+  script(src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js')
+  script(src='http://code.highcharts.com/highcharts.js')
+
+#container(style='width: 550px; height: 400px; margin: 0 auto')
+
+
+script(language='JavaScript').
+  $(document).ready(function () {
+  var title = {
+  text: "core별 task",
+  };
+  var subtitle = {
+  text: "20180880 하재민",
+  };
+  var xAxis = {
+  categories: ["core1", "core2", "core3", "core4", "core5"],
+  };
+  var yAxis = {
+  title: {
+  text: "(숫자)",
+  },
+  plotLines: [
+  {
+  value: 0,
+  width: 1,
+  color: "#808080",
+  },
+  ],
+  };
+  var tooltip = {
+  valueSuffix: "\\xB0C",
+  };
+  var legend = {
+  layout: "vertical",
+  align: "right",
+  verticalAlign: "middle",
+  borderWidth: 0,
+  };
+  var series = [
+  {
+  name: "Max",
+  data: [7.0, 6.9, 9.5, 14.5, 18.2],
+  },
+  {
+  name: "MIn",
+  data: [-0.2, 0.8, 5.7, 11.3, 17.0],
+  },
+  {
+  name: "average",
+  data: [3.9, 4.2, 5.7, 8.5, 11.9],
+  },
+  ];
+  var json = {};
+  json.title = title;
+  json.subtitle = subtitle;
+  json.xAxis = xAxis;
+  json.yAxis = yAxis;
+  json.tooltip = tooltip;
+  json.legend = legend;
+  json.series = series;
+  $("#container").highcharts(json);
+  });

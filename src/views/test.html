@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Read Text File Tutorial</title>
+  </head>
+  <body>
+    <input type="file" onchange="loadFile(this.files[0])" />
+    <br />
+    <pre id="output"></pre>
+    <script>
+      async function loadFile(file) {
+        let text = await file.text();
+        document.getElementById("output").textContent = text;
+        let test = text.split(/\s+/);
+        test.shift();
+        console.log(test);
+        for (let i = test.length - 1; i >= 0; i--) {
+          if (isNaN(Number(test[i]))) {
+            test.splice(i, 1);
+          }
+        }
+        for (let i = 0; i < test.length; i += 25) {
+          console.log(test[i]);
+        }
+        console.log(test);
+        console.log(isNaN(Number(test[6])));
+      }
+    </script>
+  </body>
+</html>
