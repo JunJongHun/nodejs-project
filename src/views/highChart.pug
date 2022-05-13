@@ -4,17 +4,84 @@ head
   title #{pageTitle}
   script(src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js')
   script(src='http://code.highcharts.com/highcharts.js')
-
+  
 #container(style='width: 550px; height: 400px; margin: 0 auto')
-
+body
+ 
+  //- button(onclick="#{()=>{showGraph(1)}}") 1
+  //- button(onclick="#{showGraph(2)}") 2
+  //- button(onclick="#{showGraph(3)}") 3
+  //- button(onclick="#{showGraph(4)}") 4
+  //- button(onclick="#{showGraph(5)}") 5
+  //- button(onclick="#{showGraph(6)}") 6
+  //- button(onclick="#{showGraph(7)}") 7
+  //- button(onclick="#{showGraph(8)}") 8
+  //- button(onclick="#{showGraph(9)}") 9
+  //- button(onclick="#{showGraph(10)}") 10
+  input(type='button', onclick='showGraph(\'1\');', value='버튼1')
+  input(type='button', onclick='showGraph(\'2\');', value='버튼2')
+  input(type='button', onclick='showGraph(\'3\');', value='버튼3')
+  input(type='button', onclick='showGraph(\'4\');', value='버튼4')
+  input(type='button', onclick='showGraph(\'5\');', value='버튼5')
+  input(type='button', onclick='showGraph(\'6\');', value='버튼6')
+  input(type='button', onclick='showGraph(\'7\');', value='버튼7')
+  input(type='button', onclick='showGraph(\'8\');', value='버튼8')
+  input(type='button', onclick='showGraph(\'9\');', value='버튼9')
+  input(type='button', onclick='showGraph(\'10\');', value='버튼10')
+  script.
+    function showGraph(number) {
+              switch (number) {
+                case '1':
+                  console.log(1);
+                  break;
+                case '2':
+                  console.log(2);
+                  break;
+    
+                case '3':
+                  console.log(3);
+                  break;
+    
+                case '4':
+                  console.log(4);
+                  break;
+    
+                case '5':
+                  console.log(5);
+                  break;
+    
+                case '6':
+                  console.log(6);
+                  break;
+    
+                case '7':
+                  console.log(7);
+                  break;
+    
+                case '8':
+                  console.log(8);
+                  break;
+    
+                case '9':
+                  console.log(9);
+                  break;
+    
+                case '10':
+                  console.log(10);
+                  break;
+    
+                default:
+                  break;
+              }
+            }
 
 script(language='JavaScript').
   $(document).ready(function () {
   var title = {
-  text: "core별 task",
+  text: "task별 core",
   };
   var subtitle = {
-  text: "20180880 하재민",
+  text: "20180869 전종훈",
   };
   var xAxis = {
   categories: ["core1", "core2", "core3", "core4", "core5"],

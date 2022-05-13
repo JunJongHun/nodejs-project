@@ -1,7 +1,79 @@
 import inputModel from "../db/schema/input"; // 모델 가져옴
+import fs from "fs";
+
+const showGraph = (number) => {
+  switch (number) {
+    case 1:
+      console.log(1);
+      break;
+    case 2:
+      console.log(2);
+      break;
+
+    case 3:
+      console.log(3);
+      break;
+
+    case 4:
+      console.log(4);
+      break;
+
+    case 5:
+      console.log(5);
+      break;
+
+    case 6:
+      console.log(6);
+      break;
+
+    case 7:
+      console.log(7);
+      break;
+
+    case 8:
+      console.log(8);
+      break;
+
+    case 9:
+      console.log(9);
+      break;
+
+    case 10:
+      console.log(10);
+      break;
+
+    default:
+      break;
+  }
+};
 
 export const upload = async (req, res, next) => {
   let fileName = req.file.originalname;
+  console.log(fileName);
+  console.log(__dirname);
+  let arr;
+  try {
+    let file_data = fs.readFileSync(
+      __dirname + `/../uploads/${fileName}`,
+      "utf-8"
+    );
+    arr = file_data.split(/\s+/);
+    arr.shift();
+    arr.pop();
+
+    for (let i = arr.length - 1; i >= 0; i--) {
+      if (isNaN(Number(arr[i]))) {
+        arr.splice(i, 1);
+      }
+    }
+    for (let i = 0; i < arr.length; i += 25) {
+      console.log(arr[i]);
+    }
+    console.table(arr);
+  } catch (error) {
+    console.log(error);
+  }
+
   try {
     const filter = { name: fileName };
     let update = {
@@ -100,10 +172,16 @@ export const upload = async (req, res, next) => {
 
     if (await inputModel.findOneAndUpdate(filter, update, { upsert: true })) {
       console.log("DB에 업데이트 ");
-      return res.render("highChart");
+      return res.render("highChart", {
+        pageTitle: "highChart",
+        showGraph: showGraph,
+      });
     } else {
-      console.log("DB에 새로 저장 ");
-      return res.render("highChart");
+      console.log("DB에 새로 저장");
+      return res.render("highChart", {
+        pageTitle: "highChart",
+        showGraph: showGraph,
+      });
     }
   } catch (error) {
     console.log(`DB 오류 있음 : ${error}`);
