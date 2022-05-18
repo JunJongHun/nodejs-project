@@ -7,127 +7,96 @@ head
   
 #container(style='width: 550px; height: 400px; margin: 0 auto')
 body
- 
-  //- button(onclick="#{()=>{showGraph(1)}}") 1
-  //- button(onclick="#{showGraph(2)}") 2
-  //- button(onclick="#{showGraph(3)}") 3
-  //- button(onclick="#{showGraph(4)}") 4
-  //- button(onclick="#{showGraph(5)}") 5
-  //- button(onclick="#{showGraph(6)}") 6
-  //- button(onclick="#{showGraph(7)}") 7
-  //- button(onclick="#{showGraph(8)}") 8
-  //- button(onclick="#{showGraph(9)}") 9
-  //- button(onclick="#{showGraph(10)}") 10
-  input(type='button', onclick='showGraph(\'1\');', value='버튼1')
-  input(type='button', onclick='showGraph(\'2\');', value='버튼2')
-  input(type='button', onclick='showGraph(\'3\');', value='버튼3')
-  input(type='button', onclick='showGraph(\'4\');', value='버튼4')
-  input(type='button', onclick='showGraph(\'5\');', value='버튼5')
-  input(type='button', onclick='showGraph(\'6\');', value='버튼6')
-  input(type='button', onclick='showGraph(\'7\');', value='버튼7')
-  input(type='button', onclick='showGraph(\'8\');', value='버튼8')
-  input(type='button', onclick='showGraph(\'9\');', value='버튼9')
-  input(type='button', onclick='showGraph(\'10\');', value='버튼10')
-  script.
-    function showGraph(number) {
-              switch (number) {
-                case '1':
-                  console.log(1);
-                  break;
-                case '2':
-                  console.log(2);
-                  break;
-    
-                case '3':
-                  console.log(3);
-                  break;
-    
-                case '4':
-                  console.log(4);
-                  break;
-    
-                case '5':
-                  console.log(5);
-                  break;
-    
-                case '6':
-                  console.log(6);
-                  break;
-    
-                case '7':
-                  console.log(7);
-                  break;
-    
-                case '8':
-                  console.log(8);
-                  break;
-    
-                case '9':
-                  console.log(9);
-                  break;
-    
-                case '10':
-                  console.log(10);
-                  break;
-    
-                default:
-                  break;
-              }
-            }
 
-script(language='JavaScript').
-  $(document).ready(function () {
-  var title = {
-  text: "task별 core",
-  };
-  var subtitle = {
-  text: "20180869 전종훈",
-  };
-  var xAxis = {
-  categories: ["core1", "core2", "core3", "core4", "core5"],
-  };
-  var yAxis = {
-  title: {
-  text: "(숫자)",
-  },
-  plotLines: [
-  {
-  value: 0,
-  width: 1,
-  color: "#808080",
-  },
-  ],
-  };
-  var tooltip = {
-  valueSuffix: "\\xB0C",
-  };
-  var legend = {
-  layout: "vertical",
-  align: "right",
-  verticalAlign: "middle",
-  borderWidth: 0,
-  };
-  var series = [
-  {
-  name: "Max",
-  data: [7.0, 6.9, 9.5, 14.5, 18.2],
-  },
-  {
-  name: "MIn",
-  data: [-0.2, 0.8, 5.7, 11.3, 17.0],
-  },
-  {
-  name: "average",
-  data: [3.9, 4.2, 5.7, 8.5, 11.9],
-  },
-  ];
-  var json = {};
-  json.title = title;
-  json.subtitle = subtitle;
-  json.xAxis = xAxis;
-  json.yAxis = yAxis;
-  json.tooltip = tooltip;
-  json.legend = legend;
-  json.series = series;
-  $("#container").highcharts(json);
-  });
+
+
+
+
+
+  <a href="/uploadFile/task1">Task1</a>
+  <a href="/uploadFile/task2">Task2</a>
+  <a href="/uploadFile/task3">Task3</a>
+  <a href="/uploadFile/task4">Task4</a>
+  <a href="/uploadFile/task5">Task5</a>
+  <a href="/uploadFile/core1">Core1</a>
+  <a href="/uploadFile/core2">Core2</a>
+  <a href="/uploadFile/core3">Core3</a>
+  <a href="/uploadFile/core4">Core4</a>
+  <a href="/uploadFile/core5">Core5</a>
+ 
+
+
+
+  //- input(type='button', onClick='location.href='#name1'', value='버튼1')
+  //- input(type='button', onClick='location.href='#name2'', value='버튼2')
+  //- input(type='button', onClick='location.href='#name3'', value='버튼3')
+  //- input(type='button', onClick='location.href='#name4'', value='버튼4')
+  //- input(type='button', onClick='location.href='#name5'', value='버튼5')
+  //- input(type='button', onClick='location.href='#name6'', value='버튼6')
+  //- input(type='button', onClick='location.href='#name7'', value='버튼7')
+  //- input(type='button', onClick='location.href='#name8'', value='버튼8')
+  //- input(type='button', onClick='location.href='#name9'', value='버튼9')
+  //- input(type='button', onClick='location.href='#name10';', value='버튼10')
+
+
+
+
+  script.
+    
+
+  script(language='JavaScript').
+    $(document).ready(function () {
+    var title = {
+    text: "#{pageTitle}에 대한 core별",
+    };
+    var subtitle = {
+    text: "20180869 전종훈",
+    };
+    var xAxis = {
+    categories: ["core1", "core2", "core3", "core4", "core5"],
+    };
+    var yAxis = {
+    title: {
+    text: "(숫자)",
+    },
+    plotLines: [
+    {
+    value: 0,
+    width: 1,
+    color: "#808080",
+    },
+    ],
+    };
+    var tooltip = {
+    valueSuffix: "\\xB0C",
+    };
+    var legend = {
+    layout: "vertical",
+    align: "right",
+    verticalAlign: "middle",
+    borderWidth: 0,
+    };
+    var series = [
+    {
+    name: "Max",
+    data: [#{maxArr}],
+    },
+    {
+    name: "MIn",
+    data: [#{minArr}],
+    },
+    {
+    name: "average",
+    data: [#{avgArr}],
+    },
+    ];
+    var json = {};
+    json.title = title;
+    json.subtitle = subtitle;
+    json.xAxis = xAxis;
+    json.yAxis = yAxis;
+    json.tooltip = tooltip;
+    json.legend = legend;
+    json.series = series;
+    $("#container").highcharts(json);
+    });

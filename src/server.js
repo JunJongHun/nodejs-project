@@ -6,7 +6,7 @@ import globalRouter from "./routers/globalRouter.js"; //glovbalRouter 불러옴
 import uploadFileRouter from "./routers/uploadFileRouter.js"; //uploda라우터 불러옴
 import path from "path";
 
-const PORT = 4000; // 딱 한번만 선언가능한 const
+const PORT = 4002; // 딱 한번만 선언가능한 const
 
 const app = express(); // 객체 app 이 express를 호출
 
