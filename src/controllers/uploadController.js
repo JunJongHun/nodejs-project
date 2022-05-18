@@ -49,6 +49,7 @@ const showGraph = (number) => {
 
 export const upload = async (req, res, next) => {
   let fileName = req.file.originalname;
+  console.log(req.body.name);
   console.log(fileName);
   console.log(__dirname);
   let arr;
@@ -65,7 +66,7 @@ export const upload = async (req, res, next) => {
     [[], [], [], [], []],
     [[], [], [], [], []],
   ];
-  
+
   try {
     let file_data = fs.readFileSync(
       __dirname + `/../uploads/${fileName}`,
@@ -134,7 +135,7 @@ export const upload = async (req, res, next) => {
     // console.table(data[6][2]);
     // console.table(data[6][3]);
     // console.table(data[6][4]);
-    console.table(data);
+    // console.table(data);
   } catch (error) {
     console.log(error);
   }
@@ -237,8 +238,10 @@ export const upload = async (req, res, next) => {
 
     if (await inputModel.findOneAndUpdate(filter, update, { upsert: true })) {
       console.log("DB에 업데이트 ");
+      console.log(req.body);
       return res.render("highChart", {
         pageTitle: "highChart",
+
         showGraph: showGraph,
       });
     } else {
