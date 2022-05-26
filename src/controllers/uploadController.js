@@ -233,6 +233,8 @@ export const show = async (req, res, next) => {
     minArr,
     avgArr,
     fileName: file,
+    d: d,
+    poto: poto,
   });
 };
 
