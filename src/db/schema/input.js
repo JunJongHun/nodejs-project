@@ -1,12 +1,14 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose";  // 몽구스 모듈 불러오기
 
-//스키마 정의하기
+//스키마 정의
 const { Schema } = mongoose;
 
 const inputSchema = new Schema({
-  // input 파일에 대한 스키마 정의하기
+  // input 파일에 대한 스키마 정의
   // https://mongoosejs.com/docs/guide.html  이거 참고해
-  name: String,
+  name: String, // 업로드하는 파일 이름을 String 형식으로 저장
+
+  // 각각 core와 task별로 해당 값들을 이중 배열 형식으로 저장
   core1: [
     {
       task1: [Number],
