@@ -7,7 +7,8 @@ head
   
 #container(style='width: 550px; height: 400px; margin: 0 auto')
 body
-
+  div
+    a(href="/") 처음 페이지로 돌아가기 
 
   a(href=`/uploadFile/task1/${pageTitle}`) Task1
   a(href=`/uploadFile/task2/${pageTitle}`) Task2
@@ -24,21 +25,22 @@ body
   script(language='JavaScript').
     $(document).ready(function () {
 
-    
-    
 
-
-
-    var title = {
-    text: "#{pageTitle} - #{Tc} 대한 #{d}별 능력",
+    let sentence="Task 또는 Core를 선택해주세요~";
+      if(#{screen}) {
+        sentence = "#{pageTitle} - #{Tc} 대한 #{miniTitle}별 능력"
+      }  
+      
+    let title = {
+    text: sentence,
     };
-    var subtitle = {
+    let subtitle = {
     text: "20180869 전종훈",
     };
-    var xAxis = {
+    let xAxis = {
     categories: ["#{miniTitle}1", "#{miniTitle}2", "#{miniTitle}3", "#{miniTitle}4", "#{miniTitle}5"],
     };
-    var yAxis = {
+    let yAxis = {
     title: {
     text: "(숫자)",
     },
@@ -50,16 +52,16 @@ body
     },
     ],
     };
-    var tooltip = {
+    let tooltip = {
     valueSuffix: "",
     };
-    var legend = {
+    let legend = {
     layout: "vertical",
     align: "right",
     verticalAlign: "middle",
     borderWidth: 0,
     };
-    var series = [
+    let series = [
     {
     name: "Max",
     data: [#{maxArr}],
@@ -73,7 +75,7 @@ body
     data: [#{avgArr}],
     },
     ];
-    var json = {};
+    let json = {};
     json.title = title;
     json.subtitle = subtitle;
     json.xAxis = xAxis;

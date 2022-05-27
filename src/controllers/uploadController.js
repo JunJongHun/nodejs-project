@@ -207,6 +207,7 @@ export const upload = async (req, res, next) => {
     return res.render("highChart", {
       // 그래프
       pageTitle: fileName,
+      screen: false,
     });
   } catch (error) {
     console.log(`DB 오류 있음 : ${error}`);
@@ -244,6 +245,7 @@ export const show = async (req, res, next) => {
     maxArr,
     minArr,
     avgArr,
+    screen: true,
   });
 };
 

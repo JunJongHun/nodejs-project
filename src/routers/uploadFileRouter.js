@@ -1,5 +1,4 @@
 import express from "express"; //express모듈로부터 가져옴
-import res from "express/lib/response";
 import multer from "multer";
 import { upload, show } from "../controllers/uploadController.js"; // uploadcontroller 에 만든 객체 upload를 여기로부터 가져온다
 
