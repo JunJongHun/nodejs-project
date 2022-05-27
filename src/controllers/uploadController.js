@@ -2,13 +2,12 @@ import inputModel from "../db/schema/input"; // 모델 가져옴
 import fs from "fs"; // fs node 모듈 불러오기
 
 export const upload = async (req, res, next) => {
-  let fileName = req.file.originalname; // 파일 정보를 fileName에 할당
-  console.log(req.body.name); // body.name 출력
-  console.log(fileName); // file.originalname 출력
-  console.log(__dirname); // 파일 디렉토리 출력
+  let fileName = req.file.originalname; // 파일 이름을 fileName에 할당
+  console.log(`파일 이름 확인용 : ${fileName}}`);
 
   let arr; // arr 정의
-  let taskCoreBox = [ // taskCoreBox 다중배열 형식으로 정의
+  let taskCoreBox = [
+    // taskCoreBox 다중배열 형식으로 정의
     [[], [], [], [], []],
     [[], [], [], [], []],
     [[], [], [], [], []],
@@ -22,33 +21,37 @@ export const upload = async (req, res, next) => {
   ];
 
   try {
-    let file_data = fs.readFileSync( // 파일 동기 처리 방식 활용
-      __dirname + `/../uploads/${fileName}`, 
+    let file_data = fs.readFileSync(
+      // 파일 동기 처리 방식 활용
+      __dirname + `/../uploads/${fileName}`,
       "utf-8"
     );
 
     arr = file_data.split(/\s+/); // file_data에서 공백 문자를 기준으로 문자열을 나누어 arr에 할당.
+    console.log("가공한 데이터가 배열에 어떻게 저장되었나 확인용");
+    console.table(arr);
     arr.shift(); // arr의 맨 앞 값 제거 (공백)
-    arr.pop(); // arr의 맨 끝 값 제거
+    arr.pop(); // arr의 맨 끝 값 제거 (공백)
 
     // for 문을 돌려 숫자 외에 다른 값들 (core1, task1 등) 제거하도록 가공하는 과정
     for (let i = arr.length - 1; i >= 0; i--) {
       for (let i = arr.length - 1; i >= 0; i--) {
-        if (isNaN(Number(arr[i]))) { // i가 숫자가 아닐 시 splice를 이용해 i로부터 하나의 문자열 제거
+        if (isNaN(Number(arr[i]))) {
+          // i가 숫자가 아닐 시 splice를 이용해 i로부터 하나의 문자열 제거
           arr.splice(i, 1);
         }
       }
     }
 
-
     // inputfile을 총 10개의 그룹으로 나누었다고 가정하고 이중 for문을 돌게 함
     // 그룹마다 각각 25개의 숫자로 나뉘도록 슬라이스 ([0]~[24], [25]~[49], ...)
     // 그룹 안 숫자에 대한 인덱스 값이 하나씩 돌면서, 5로 나눴을 때 나오는 나머지 값에 따라 각각 해당하는 배열의 맨 끝에 추가되도록 함.
 
-    for (let j = 0; j < 10; j++) { 
-      let newArr = arr.slice(j * 25, j * 25 + 25); 
-      for (let i = 0; i < 25; i++) { 
-        if (i % 5 === 0) { // 인덱스 값을 5로 나누고 나머지 확인
+    for (let j = 0; j < 10; j++) {
+      let newArr = arr.slice(j * 25, j * 25 + 25);
+      for (let i = 0; i < 25; i++) {
+        if (i % 5 === 0) {
+          // 인덱스 값을 5로 나누고 나머지 확인
           taskCoreBox[parseInt(i / 5)][0].push(newArr[i]); // 5로 나누었을 때의 parseInt에 의해 몫에 따라 들어가는 배열 구분
         }
         if (i % 5 === 1) {
@@ -67,10 +70,12 @@ export const upload = async (req, res, next) => {
       // console.table(arr);
     }
 
-    for (let j = 0; j < 10; j++) {  // 위와 동일한 방식으로 진행
-      let newArr = arr.slice(j * 25, j * 25 + 25); 
-      for (let i = 0; i < 25; i++) {  
-        if (parseInt(i / 5) === 0) {    // i의 인덱스 값이 
+    for (let j = 0; j < 10; j++) {
+      // 위와 동일한 방식으로 진행
+      let newArr = arr.slice(j * 25, j * 25 + 25);
+      for (let i = 0; i < 25; i++) {
+        if (parseInt(i / 5) === 0) {
+          // i의 인덱스 값이
           taskCoreBox[parseInt(i % 5) + 5][0].push(newArr[i]);
         }
         if (parseInt(i / 5) === 1) {
@@ -88,19 +93,16 @@ export const upload = async (req, res, next) => {
       }
       // console.table(arr);
     }
-    // console.table(taskCoreBox[6][0]);
-    // console.table(taskCoreBox[6][1]);
-    // console.table(taskCoreBox[6][2]);
-    // console.table(taskCoreBox[6][3]);
-    // console.table(taskCoreBox[6][4]);
-    // console.log(taskCoreBox[0][0]);
+
+    console.table(taskCoreBox);
   } catch (error) {
     console.log(error); // 에러 발생 시 에러 출력
   }
 
   try {
     const filter = { name: fileName }; // 올리는 파일 이름을 name에 두고 필터로 후에 중복 체크시 필요
-    let update = { // 가공 된 값들을 배열에 업데이트
+    let update = {
+      // 가공 된 값들을 배열에 업데이트
       core1: [
         {
           task1: taskCoreBox[0][0],
@@ -194,13 +196,16 @@ export const upload = async (req, res, next) => {
       ],
     };
 
-    if (await inputModel.findOneAndUpdate(filter, update, { upsert: true })) {  // 파일이 db에 이미 존재하는지 필터로 확인 후 동일한 이름을 찾아 값을 업데이트
+    if (await inputModel.findOneAndUpdate(filter, update, { upsert: true })) {
+      // 파일이 db에 이미 존재하는지 필터로 확인 후 동일한 이름을 찾아 값을 업데이트
       console.log("DB에 업데이트 ");
-    } else {    // 새로운 파일일 시 db에 새로 저장하고 확인 값 출력
+    } else {
+      // 새로운 파일일 시 db에 새로 저장하고 확인 값 출력
       console.log("DB에 새로 저장");
     }
 
-    return res.render("highChart", {  // 그래프
+    return res.render("highChart", {
+      // 그래프
       pageTitle: "highChart",
       fileName: fileName,
     });
