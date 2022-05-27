@@ -9,28 +9,34 @@ head
 body
 
 
-  a(href=`/uploadFile/task1/${fileName}`) Task1
-  a(href=`/uploadFile/task2/${fileName}`) Task2
-  a(href=`/uploadFile/task3/${fileName}`) Task3
-  a(href=`/uploadFile/task4/${fileName}`) Task4
-  a(href=`/uploadFile/task5/${fileName}`) Task5
-  a(href=`/uploadFile/core1/${fileName}`) Core1
-  a(href=`/uploadFile/core2/${fileName}`) Core2
-  a(href=`/uploadFile/core3/${fileName}`) Core3
-  a(href=`/uploadFile/core4/${fileName}`) Core4
-  a(href=`/uploadFile/core5/${fileName}`) Core5
+  a(href=`/uploadFile/task1/${pageTitle}`) Task1
+  a(href=`/uploadFile/task2/${pageTitle}`) Task2
+  a(href=`/uploadFile/task3/${pageTitle}`) Task3
+  a(href=`/uploadFile/task4/${pageTitle}`) Task4
+  a(href=`/uploadFile/task5/${pageTitle}`) Task5
+  a(href=`/uploadFile/core1/${pageTitle}`) Core1
+  a(href=`/uploadFile/core2/${pageTitle}`) Core2
+  a(href=`/uploadFile/core3/${pageTitle}`) Core3
+  a(href=`/uploadFile/core4/${pageTitle}`) Core4
+  a(href=`/uploadFile/core5/${pageTitle}`) Core5
   
 
   script(language='JavaScript').
     $(document).ready(function () {
+
+    
+    
+
+
+
     var title = {
-    text: "#{pageTitle} - #{poto} 대한 #{d}별 능력",
+    text: "#{pageTitle} - #{Tc} 대한 #{d}별 능력",
     };
     var subtitle = {
     text: "20180869 전종훈",
     };
     var xAxis = {
-    categories: ["core1", "core2", "core3", "core4", "core5"],
+    categories: ["#{miniTitle}1", "#{miniTitle}2", "#{miniTitle}3", "#{miniTitle}4", "#{miniTitle}5"],
     };
     var yAxis = {
     title: {
@@ -45,7 +51,7 @@ body
     ],
     };
     var tooltip = {
-    valueSuffix: "\\xB0C",
+    valueSuffix: "",
     };
     var legend = {
     layout: "vertical",

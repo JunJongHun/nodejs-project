@@ -206,8 +206,7 @@ export const upload = async (req, res, next) => {
 
     return res.render("highChart", {
       // 그래프
-      pageTitle: "highChart",
-      fileName: fileName,
+      pageTitle: fileName,
     });
   } catch (error) {
     console.log(`DB 오류 있음 : ${error}`);
@@ -216,36 +215,35 @@ export const upload = async (req, res, next) => {
 };
 
 export const show = async (req, res, next) => {
-  const { poto, file } = req.params;
-  console.log(poto);
+  const { Tc, file } = req.params;
+  console.log(Tc);
   console.log(file);
   let data = await inputModel.find({ name: file });
 
-  console.log(data[0][poto][0]);
+  console.log(data[0][Tc][0]);
 
-  let arr = data[0][poto][0];
+  let arr = data[0][Tc][0];
   let maxArr = [];
   let avgArr = [];
   let minArr = [];
-  let d = "";
-  console.log(poto[0]);
-  if (poto[0] === "t") d = "core";
-  else d = "task";
+  let miniTitle = "";
+  console.log(Tc[0]);
+  if (Tc[0] === "t") miniTitle = "core";
+  else miniTitle = "task";
 
   for (let i = 1; i <= 5; i++) {
-    maxArr.push(max(arr[d + i]));
-    avgArr.push(avg(arr[d + i]));
-    minArr.push(min(arr[d + i]));
+    maxArr.push(max(arr[miniTitle + i]));
+    avgArr.push(avg(arr[miniTitle + i]));
+    minArr.push(min(arr[miniTitle + i]));
   }
 
   return res.render("highChart", {
     pageTitle: file,
+    Tc: Tc,
+    miniTitle: miniTitle,
     maxArr,
     minArr,
     avgArr,
-    fileName: file,
-    d: d,
-    poto: poto,
   });
 };
 
