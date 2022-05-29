@@ -43,6 +43,12 @@ export const upload = async (req, res, next) => {
       }
     }
 
+    // 유효성 검사 부분
+    if (arr.length !== 250) {
+      console.log("데이터 개수 누락 또는 많음");
+      return res.status(400).render("mainPage", { alert: true });
+    }
+
     // inputfile을 총 10개의 그룹으로 나누었다고 가정하고 이중 for문을 돌게 함
     // 그룹마다 각각 25개의 숫자로 나뉘도록 슬라이스 ([0]~[24], [25]~[49], ...)
     // 그룹 안 숫자에 대한 인덱스 값이 하나씩 돌면서, 5로 나눴을 때 나오는 나머지 값에 따라 각각 해당하는 배열의 맨 끝에 추가되도록 함.
@@ -94,13 +100,7 @@ export const upload = async (req, res, next) => {
       // console.table(arr);
     }
 
-    // 유효성 검사 부분
-    if (arr.length !== 250) {
-      console.log("데이터 개수 누락 또는 많음");
-      return res.status(400).render("mainPage", { alert: true });
-    }
-
-    // console.table(taskCoreBox);
+    // console.table(taskCoreBox); // 데이터가 잘 들어갔는지 확인용
   } catch (error) {
     console.log(error); // 에러 발생 시 에러 출력
   }
@@ -211,7 +211,6 @@ export const upload = async (req, res, next) => {
     }
 
     return res.render("highChart", {
-      // 그래프
       pageTitle: fileName,
       screen: false,
     });
