@@ -4,29 +4,38 @@ head
   title #{pageTitle}
   script(src='http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js')
   script(src='http://code.highcharts.com/highcharts.js')
+
+  style 
+   include css/style.css
   
 #container(style='width: 550px; height: 400px; margin: 0 auto')
-body
-  div
-    a(href="/") 처음 페이지로 돌아가기 
+body 
 
-  a(href=`/uploadFile/task1/${pageTitle}`) Task1
-  a(href=`/uploadFile/task2/${pageTitle}`) Task2
-  a(href=`/uploadFile/task3/${pageTitle}`) Task3
-  a(href=`/uploadFile/task4/${pageTitle}`) Task4
-  a(href=`/uploadFile/task5/${pageTitle}`) Task5
-  a(href=`/uploadFile/core1/${pageTitle}`) Core1
-  a(href=`/uploadFile/core2/${pageTitle}`) Core2
-  a(href=`/uploadFile/core3/${pageTitle}`) Core3
-  a(href=`/uploadFile/core4/${pageTitle}`) Core4
-  a(href=`/uploadFile/core5/${pageTitle}`) Core5
+  div.hi
+    br
+    br
+    
+    a(href="/")         처음 페이지로 돌아가기  
+    
+  div.bye
+    a(href=`/uploadFile/task1/${pageTitle}` ) ［           Task1              ］
+    a(href=`/uploadFile/task2/${pageTitle}`)  ［           Task2              ］
+    a(href=`/uploadFile/task3/${pageTitle}`)  ［           Task3              ］
+    a(href=`/uploadFile/task4/${pageTitle}`)  ［           Task4              ］
+    a(href=`/uploadFile/task5/${pageTitle}`)  ［           Task5              ］
+    br
+    a(href=`/uploadFile/core1/${pageTitle}`)  ［           Core1              ］
+    a(href=`/uploadFile/core2/${pageTitle}`)  ［           Core2              ］
+    a(href=`/uploadFile/core3/${pageTitle}`)  ［           Core3              ］
+    a(href=`/uploadFile/core4/${pageTitle}`)  ［           Core4              ］
+    a(href=`/uploadFile/core5/${pageTitle}`)  ［           Core5              ］
   
 
   script(language='JavaScript').
     $(document).ready(function () {
 
 
-    let sentence="Task 또는 Core를 선택해주세요~";
+    let sentence="Task 또는 Core를 선택해주세요";
       if(#{screen}) {
         sentence = "#{pageTitle} - #{Tc} 대한 #{miniTitle}별 능력"
       }  
@@ -35,7 +44,7 @@ body
     text: sentence,
     };
     let subtitle = {
-    text: "20180869 전종훈",
+    text: "20180869 전종훈 / 20180880 하재민/ 20201381 문효진 / 20200826 김지민",
     };
     let xAxis = {
     categories: ["#{miniTitle}1", "#{miniTitle}2", "#{miniTitle}3", "#{miniTitle}4", "#{miniTitle}5"],

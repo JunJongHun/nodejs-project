@@ -71,7 +71,7 @@ export const upload = async (req, res, next) => {
     }
 
     for (let j = 0; j < 10; j++) {
-      // 위와 동일한 방식으로 진행
+      // 위와 동일한 방식으로 진행 ( 행 열을 바꿔 줌 )
       let newArr = arr.slice(j * 25, j * 25 + 25);
       for (let i = 0; i < 25; i++) {
         if (parseInt(i / 5) === 0) {
@@ -94,7 +94,13 @@ export const upload = async (req, res, next) => {
       // console.table(arr);
     }
 
-    console.table(taskCoreBox);
+    // 유효성 검사 부분
+    if (arr.length !== 250) {
+      console.log("데이터 개수 누락 또는 많음");
+      return res.status(400).render("mainPage", { alert: true });
+    }
+
+    // console.table(taskCoreBox);
   } catch (error) {
     console.log(error); // 에러 발생 시 에러 출력
   }

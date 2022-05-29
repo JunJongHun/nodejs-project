@@ -5,11 +5,16 @@ title Main Page
 link(rel='shortcut icon', href='/favicon.ico', type='image/x-icon')
 link(rel='icon', href='/favicon.ico', type='image/x-icon')
 
+style 
+  include css/style.css
   
-div Main Page - Push inputData Server
+div.main Main Page - Push inputData Server
 form.form(action='/uploadFile', name='input_file', method='post', enctype='multipart/form-data')
   input.f(type='file', value='파일 선택', accept='.txt', name='userfile' required)
   input.btn(type='submit', value='제출' name='2')
+
+if alert 
+  div.error 데이터 개수 누락 또는 오버 되었습니다. 파일을 확인해주세요.
 
     
     

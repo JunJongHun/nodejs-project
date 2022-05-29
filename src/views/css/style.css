@@ -1,0 +1,136 @@
+a {
+  text-align: center;
+  color: black;
+  margin-right: 30px;
+  text-decoration: solid;
+  position: relative;
+  padding: 15px 30px;
+  margin: 30px 20px 20px 20px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.hi {
+  text-align: center;
+}
+
+.bye {
+  text-align: center;
+}
+
+div {
+  text-align: center;
+  margin: auto;
+  position: relative;
+  padding: 15px 30px;
+  margin: 0px 20px 20px 20px;
+  border-radius: 15px;
+}
+
+.f {
+  position: relative;
+  padding: 15px 30px;
+  margin: 20px 20px 20px 20px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.btn {
+  position: relative;
+  padding: 15px 30px;
+  margin: 20px 20px 20px 20px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.main {
+  position: relative;
+  padding: 15px 30px;
+  margin: 20px 20px 20px 20px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.error {
+  position: relative;
+  padding: 15px 30px;
+  margin: 5px 20px 20px 20px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(243, 66, 66, 0.636);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+  color: rgba(242, 4, 4, 0.757);
+
+  position: relative;
+  border: none;
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(242, 4, 4, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
