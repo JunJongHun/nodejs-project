@@ -7,4 +7,5 @@ const uploadFileRouter = express.Router(); //express 라우터 호출
 // uploadFileRouter.get("/", upload);       //주어진 URL에 대해 GET 요청에서  /를 실행
 uploadFileRouter.post("/", multerUpload.single("userfile"), upload);
 uploadFileRouter.get("/:Tc/:file", show);
+
 export default uploadFileRouter; //exprot default는  한모듈덩 허너
